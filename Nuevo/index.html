@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+      <style>
+          .active {
+            background-color: #5CB4FF;
+          }
+          #answer {
+            font-size: 24px;
+            color: #0C287D;
+          }
+      </style>
+    <head>
+        <title>Binary ~ Decimal Converter</title>
+    </head>
+
+    <body>
+        <p>Ingrese un numero y decida lo que necesita del numero.</p>
+        <label>Input:</label><br>
+        <input type="text" id="user_input" /><br>
+        <button id="push_button">Push</button><br>
+        <button id="binary" class="active">Binary</button><button id="decimal" class="">Decimal</button>
+        <div id="answer"></div>
+        <script>
+            jQuery( document ).ready( function() {
+
+                $( '#push_button' ).on( 'click', function() {
+                    var num_to_convert = $( '#user_input' ).val();
+                    var num_type = $( '.active' ).attr( 'id' );
+                    var ret_str = '';
+
+                    if( num_type == 'binary' )
+                    {
+                        while( num_to_convert >= 1 )
+                        {
+                            ret_str += ( num_to_convert % 2 );
+                            if( ( num_to_convert % 2 ) == 1 )
+                            {
+                                num_to_convert--;
+                            }
+                            num_to_convert /= 2;
+                        }
+                        $( '#answer' ).html( ret_str.split( '' ).reverse().join( '' ) );
+                    }
+                    else if( num_type == 'decimal' )
+                    {
+                        var num_to_convert = $( '#user_input' ).val();
+                        var power_of = 0;
+                        var ret_num = 0;
+                        var valid_num = true;
+                        num_to_convert.split( '' ).reverse().forEach( function( value, index ) {
+                            if( value != 0 && value != 1 )
+                            {
+                                $( '#answer' ).html( 'Your entered number is not in binary format. Please try again with the proper format.' );
+                                valid_num = false;
+                            }
+                            if( value == 1 )
+                            {
+                                ret_num += Math.pow( 2, power_of );
+                            }
+                            power_of++;
+                        } );
+                        if( valid_num )
+                        {
+                            $( '#answer' ).html( ret_num );
+                        }
+                    }
+                    else
+                    {
+                        $( '#answer' ).html( 'Something went wrong...' );
+                    }
+
+                } );
+
+                $( '#binary' ).on( 'click', function() {
+                    $( '#decimal' ).removeClass( 'active' );
+                    $( this ).addClass( 'active' );
+                } );
+
+                $( '#decimal' ).on( 'click', function() {
+                    $( '#binary' ).removeClass( 'active' );
+                    $( this ).addClass( 'active' );
+                } );
+
+            } );
+        </script>
+    </body>
+</html>

@@ -10,9 +10,15 @@
         <div class="container">
             <form class="calculator" name="calc">
                 <input type="text" readonly class="value" name="txt"/>
+                <input type="text2" readonly class="value" name="txt2"/>
+                <input type="text3" readonly class="value" name="txt3"/>
+                <input type="text4" readonly class="value" name="txt4"/>
                 <span class="num" onclick="calc.txt.value = ''">c</span>
-                <span class="num" onclick="document.calc.txt.value += '/'">/</span>
-                <span class="num" onclick="document.calc.txt.value += '*'">*</span>
+                <span class="num" onclick="calc.txt2.value = ''">c1</span>
+                <span class="num" onclick="calc.txt3.value = ''">c2</span>
+                <span class="num" onclick="calc.txt4.value = ''">c3</span>
+                <span class="num" onclick="document.calc.txt2.value += '/'">/</span>
+                <span class="num" onclick="document.calc.txt2.value += '*'">*</span>
                 <span class="num" onclick="document.calc.txt.value += '7'">7</span>
                 <span class="num" onclick="document.calc.txt.value += '8'">8</span>
                 <span class="num" onclick="document.calc.txt.value += '9'">9</span>
@@ -28,6 +34,7 @@
                 <span class="num" onclick="document.calc.txt.value += '00'">00</span>
                 <span class="num" onclick="document.calc.txt.value += '.'">.</span>
                 <span class="num" onclick="document.calc.txt.value = eval(calc.txt.value)">=</span>
+                
             </form>
         </div>
     </body>
