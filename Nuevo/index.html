@@ -14,14 +14,14 @@
           }
       </style>
     <head>
-        <title>Binary ~ Decimal Converter</title>
+        <title>Converter OC</title>
     </head>
 
     <body>
         <p>Ingrese un numero y decida lo que necesita del numero.</p>
         <label>Input:</label><br>
         <input type="text" id="user_input" /><br>
-        <button id="push_button">Push</button><br>
+        <button id="push_button">Confirmar</button><br>
         <button id="binary" class="active">Binary</button><button id="decimal" class="">Decimal</button>
         <div id="answer"></div>
         <script>
@@ -31,18 +31,23 @@
                     var num_to_convert = $( '#user_input' ).val();
                     var num_type = $( '.active' ).attr( 'id' );
                     var ret_str = '';
-
+                    var contador = false;
+                    var probando = 3;
                     if( num_type == 'binary' )
                     {
+                        probando += ( 1);
                         while( num_to_convert >= 1 )
                         {
+                            
                             ret_str += ( num_to_convert % 2 );
+
                             if( ( num_to_convert % 2 ) == 1 )
-                            {
+                            {   
                                 num_to_convert--;
                             }
                             num_to_convert /= 2;
                         }
+                        $( '#answer' ).html( ret_str.split( '' ).reverse().join( '' ) );
                         $( '#answer' ).html( ret_str.split( '' ).reverse().join( '' ) );
                     }
                     else if( num_type == 'decimal' )
@@ -54,7 +59,7 @@
                         num_to_convert.split( '' ).reverse().forEach( function( value, index ) {
                             if( value != 0 && value != 1 )
                             {
-                                $( '#answer' ).html( 'Your entered number is not in binary format. Please try again with the proper format.' );
+                                $( '#answer' ).html( 'Su numero ingresado no está en formato binario. Vuelva a intentarlo con el formato adecuado. .' );
                                 valid_num = false;
                             }
                             if( value == 1 )
@@ -70,7 +75,7 @@
                     }
                     else
                     {
-                        $( '#answer' ).html( 'Something went wrong...' );
+                        $( '#answer' ).html( 'Error...' );
                     }
 
                 } );
