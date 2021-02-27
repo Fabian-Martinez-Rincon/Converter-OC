@@ -48,7 +48,9 @@ var
     ex2:cadena11;
     ca1:cadena11;
     bcs:integer;
+    ca1_decimal:integer;
 begin
+    ca1_decimal:=0;
     bcs:=0;
     ca1:='';
     dato:=0;
@@ -70,11 +72,12 @@ begin
     end;
     if ( Binario[Length(Binario)-probando] = '1')  then
     begin
-        WriteLn('Bcs: ', Binario );
+        WriteLn('Bcs: ', Binario ); //Lo dejo igual ya que no cambia nada el binario original del Bcs
         signo_operacion(Binario,bcs);
         WriteLn('Bcs_decimal: -',bcs);
         ComplementoA1(Binario,ca1);
         WriteLn('Ca1: ', ca1 );
+        WriteLn('Ca1_decimal: ', ca1_decimal );
         WriteLn('Ca2: ', Binario );
     end;
     resultado:=dato;
