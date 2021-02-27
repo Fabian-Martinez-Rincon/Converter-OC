@@ -28,16 +28,15 @@ begin
     end;
 end;
 //_____________________________________________________________________________________________
-procedure Bcs_decimal(Binario:cadena11;var bcs:integer);
+procedure signo_operacion(Binario:cadena11;var numero:integer);
 var
     i,dato:integer;
 begin
-    dato:=0;
     for i:=0 to (Length(Binario)-2) do //Me quedo con los primeros digitos y dejando el ultimo porque se usa para el signo
     begin
         if (Binario[Length(Binario)-i] = '1') then
         begin
-            bcs:=bcs+valores[i]; 
+            numero:=numero+valores[i]; 
         end;
     end;
 end;
@@ -72,8 +71,8 @@ begin
     if ( Binario[Length(Binario)-probando] = '1')  then
     begin
         WriteLn('Bcs: ', Binario );
-        Bcs_decimal(Binario,bcs);
-        WriteLn('Bcs_Decimal: -',bcs);
+        signo_operacion(Binario,bcs);
+        WriteLn('Bcs_decimal: -',bcs);
         ComplementoA1(Binario,ca1);
         WriteLn('Ca1: ', ca1 );
         WriteLn('Ca2: ', Binario );
