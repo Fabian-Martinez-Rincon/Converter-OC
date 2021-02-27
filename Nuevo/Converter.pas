@@ -74,6 +74,7 @@ begin
         if (i = 0) and (ca1[Length(ca1)-i] = '0') then //Miro el primer digito y tambien si es cero
         begin
             ca2:='1'+ca2;
+            termino:=True;
         end
         else
             begin
