@@ -182,17 +182,49 @@ begin
     resultado:=dato;
 end;
 //___________________________________________________________________
+function decimal_binario(deci : integer) : cadena11;
 var
-    Numero:cadena11;
+    dato : cadena11;
+    i, resu, dib : integer;
+    resto : integer;
+    ca : string[1];
+begin
+    dib := deci;
+    i := 1;
+    repeat
+        fillchar(ca,2,' ');
+        ca[0] := chr(1);
+        resu := dib div 2;
+        resto := dib mod 2;
+        dib := resu;
+        resu := 0;
+        str(resto,ca);
+        dato[i] := ca[1];
+        dato[0] := chr(i);
+        i := i + 1;
+        resto := 0;
+    until dib = 0;
+    if length(dato) < 11 then
+        for i := 1 to (11 - length(dato)) do
+            begin
+                insert('0',dato,1);
+            end;
+    decimal_binario := dato;
+end;
+//___________________________________________________________________
+var
+    Binario:cadena11;
     resultado:integer;
     Elegir:Integer;
+    decimal:integer;
 begin
+    decimal:=0;
     Elegir:=0;
     resultado:=0;
-    Numero:='A';
+    Binario:='';
     clrscr;
     WriteLn('________________________________________');
-    while (Numero <> 'F')  do
+    while (Binario <> 'F') or (decimal = 9)  do
     begin
         writeln('Elija una opcion: ');
         WriteLn('1) Caracteristicas de un Binario.');
@@ -204,16 +236,18 @@ begin
             begin
                 WriteLn('Termina escribiendo "F"');    
                 writeln('Ingrese un numero Binario: ');
-                ReadLn(Numero);
-                Binario_A_Decimal(Numero,resultado);
+                ReadLn(Binario);
+                Binario_A_Decimal(Binario,resultado);
                 WriteLn('Decimal: ', resultado);
-                WriteLn('Bits: ',Length(Numero));
+                WriteLn('Bits: ',Length(Binario));
             end;
             2:
             begin
                 WriteLn('Termina escribiendo "F"');    
                 writeln('Ingrese un numero Decimal: ');
-                ReadLn(Numero);
+                ReadLn(decimal);
+                
+                WriteLn('El binario es: ', decimal_binario(decimal));
             end;
         end;
         

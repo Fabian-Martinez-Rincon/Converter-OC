@@ -58,7 +58,8 @@ begin
     decimal_binario := dato;
 end;
 
-
+var
+    Numero1:integer;
 
 begin
     clrscr;
@@ -67,7 +68,8 @@ begin
     writeln('Numero Entrado = ',cadena);
     writeln('Resultado = ',binario_decimal(cadena),' Decimal');
     writeln;
-    num := 27;
+    ReadLn(Numero1);
+    num:=Numero1;
     writeln('Numero Entrado = ',num);
     writeln('Resultado = ',decimal_binario(num),' Binario');
     readln;
