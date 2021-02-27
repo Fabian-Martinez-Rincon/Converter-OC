@@ -37,7 +37,7 @@ begin
     end;
 end;
 //___________________________________________________________________
-procedure ComplementoA2(ca1:cadena11;var ca2:cadena11);
+procedure ComplementoA2(ca1:cadena11;var ca2:cadena11);//Si, todo este proceso es para sumar el carry
 var
     i:integer;
     carry:Boolean;
@@ -82,7 +82,7 @@ begin
     end;
 end;
 //___________________________________________________________________
-procedure exceso(binario:cadena11;var ex2:cadena11);
+procedure exceso(binario:cadena11;var ex2:cadena11); // Recorro el binario hasta cambiar el ultimo digito por un 0
 var
     i:integer;
 begin
