@@ -110,7 +110,11 @@ var
     ca2_decimal:integer;
     ex2:cadena11;
     ex2_decimal:integer;
+    segundon:cadena11;
+    segundon2:cadena11;
 begin
+    segundon:='';
+    segundon2:='';
     dato:=0;
     probando:=0;
     bcs:=0;
@@ -132,10 +136,23 @@ begin
 
     if ( Binario[Length(Binario)-probando] = '0')  then
     begin
+        Writeln('____________________');
         WriteLn('Bss: ', Binario );
+        WriteLn('Bss_decimal', dato );
+        Writeln('____________________');
         WriteLn('Ca1: ', Binario );
+        WriteLn('Ca1_decimal', dato );
+        Writeln('____________________');
         WriteLn('Ca2: ', Binario );
-        //Exceso(Binario,ex2);
+        WriteLn('Ca2_decimal', dato );
+        Writeln('____________________');
+        ComplementoA1(Binario,segundon);
+        ComplementoA2(segundon,segundon2);
+        Exceso(segundon2,ex2);
+        WriteLn('Ex2: ',ex2);
+        signo_operacion(ex2,ex2_decimal);
+        WriteLn('Ex2_decimal: -', ex2_decimal );
+        Writeln('____________________');
     end;
 
     if ( Binario[Length(Binario)-probando] = '1')  then
