@@ -138,13 +138,13 @@ begin
     begin
         Writeln('____________________');
         WriteLn('Bss: ', Binario );
-        WriteLn('Bss_decimal', dato );
+        WriteLn('Bss_decimal: ', dato );
         Writeln('____________________');
         WriteLn('Ca1: ', Binario );
-        WriteLn('Ca1_decimal', dato );
+        WriteLn('Ca1_decimal: ', dato );
         Writeln('____________________');
         WriteLn('Ca2: ', Binario );
-        WriteLn('Ca2_decimal', dato );
+        WriteLn('Ca2_decimal: ', dato );
         Writeln('____________________');
         ComplementoA1(Binario,segundon);
         ComplementoA2(segundon,segundon2);
@@ -183,21 +183,40 @@ begin
 end;
 //___________________________________________________________________
 var
-    Binario:cadena11;
+    Numero:cadena11;
     resultado:integer;
+    Elegir:Integer;
 begin
+    Elegir:=0;
     resultado:=0;
-    Binario:='A';
+    Numero:='A';
     clrscr;
     WriteLn('________________________________________');
-    while (Binario <> 'F')  do
+    while (Numero <> 'F')  do
     begin
-        WriteLn('Termina escribiendo "F"');    
-        writeln('Ingrese un numero Binario: ');
-        ReadLn(Binario);
-        Binario_A_Decimal(Binario,resultado);
-        WriteLn('Decimal: ', resultado);
-        WriteLn('Bits: ',Length(Binario));
+        writeln('Elija una opcion: ');
+        WriteLn('1) Caracteristicas de un Binario.');
+        WriteLn('2) Caracteristicas de un Decimal.');
+        ReadLn(Elegir);
+
+        case Elegir of
+            1: 
+            begin
+                WriteLn('Termina escribiendo "F"');    
+                writeln('Ingrese un numero Binario: ');
+                ReadLn(Numero);
+                Binario_A_Decimal(Numero,resultado);
+                WriteLn('Decimal: ', resultado);
+                WriteLn('Bits: ',Length(Numero));
+            end;
+            2:
+            begin
+                WriteLn('Termina escribiendo "F"');    
+                writeln('Ingrese un numero Decimal: ');
+                ReadLn(Numero);
+            end;
+        end;
+        
         WriteLn('________________________________________');
     end;
 end.
