@@ -5,6 +5,7 @@ type
     cadena11 = string[11];
 const
     valores : array[0..11] of integer = (1,2,4,8,16,32,64,128,256,512,1024,2048);
+    valores2 : array[0..11] of integer = (2048,1024,512,256,128,64,32,16,8,4,2,1);
 
 //___________________________________________________________________
 procedure ComplementoA1(Binario:cadena11;var ca1:cadena11);
@@ -182,34 +183,22 @@ begin
     resultado:=dato;
 end;
 //___________________________________________________________________
-function decimal_binario(deci : integer) : cadena11;
+procedure Decimal_Binario(decimal:Integer;var binario:cadena11);
 var
-    dato : cadena11;
-    i, resu, dib : integer;
-    resto : integer;
-    ca : string[1];
+    i:Integer;
 begin
-    dib := deci;
-    i := 1;
-    repeat
-        fillchar(ca,2,' ');
-        ca[0] := chr(1);
-        resu := dib div 2;
-        resto := dib mod 2;
-        dib := resu;
-        resu := 0;
-        str(resto,ca);
-        dato[i] := ca[1];
-        dato[0] := chr(i);
-        i := i + 1;
-        resto := 0;
-    until dib = 0;
-    if length(dato) < 11 then
-        for i := 1 to (11 - length(dato)) do
-            begin
-                insert('0',dato,1);
-            end;
-    decimal_binario := dato;
+    for i:=1 to 11 do
+    begin
+        if (valores2[i]<=decimal) then
+        begin
+            binario:=binario+'1';
+            decimal:=decimal-valores2[i];
+        end
+            else
+                begin
+                    binario:=binario+'0';
+                end;
+    end;
 end;
 //___________________________________________________________________
 var
@@ -246,8 +235,11 @@ begin
                 WriteLn('Termina escribiendo "F"');    
                 writeln('Ingrese un numero Decimal: ');
                 ReadLn(decimal);
-                
-                WriteLn('El binario es: ', decimal_binario(decimal));
+                Decimal_Binario(decimal,Binario);
+                WriteLn('El binario es: ', Binario);
+                Binario_A_Decimal(Binario,resultado);
+                WriteLn('Decimal: ', resultado);
+                WriteLn('Bits: ',Length(Binario));
             end;
         end;
         
