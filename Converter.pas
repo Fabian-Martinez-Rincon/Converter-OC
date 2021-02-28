@@ -186,19 +186,26 @@ end;
 procedure Decimal_Binario(decimal:Integer;var binario:cadena11);
 var
     i:Integer;
+    grande:integer;
 begin
+    grande:=999;
     for i:=1 to 11 do
     begin
         if (valores2[i]<=decimal) then
         begin
             binario:=binario+'1';
             decimal:=decimal-valores2[i];
+            if grande>=i then
+            begin
+                grande:= i-1;  
+            end;
         end
             else
                 begin
                     binario:=binario+'0';
                 end;
     end;
+    Delete(binario,1,grande);
 end;
 //___________________________________________________________________
 var
@@ -215,6 +222,9 @@ begin
     WriteLn('________________________________________');
     while (Binario <> 'F') or (decimal = 9)  do
     begin
+        Binario:='';
+        decimal:=0;
+        resultado:=0;
         writeln('Elija una opcion: ');
         WriteLn('1) Caracteristicas de un Binario.');
         WriteLn('2) Caracteristicas de un Decimal.');
@@ -238,7 +248,6 @@ begin
                 Decimal_Binario(decimal,Binario);
                 WriteLn('El binario es: ', Binario);
                 Binario_A_Decimal(Binario,resultado);
-                WriteLn('Decimal: ', resultado);
                 WriteLn('Bits: ',Length(Binario));
             end;
         end;
