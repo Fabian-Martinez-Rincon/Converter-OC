@@ -1,4 +1,4 @@
-program Ejercicio;
+program ConverterOC;
 uses
     crt;
 type
