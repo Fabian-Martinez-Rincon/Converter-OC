@@ -178,7 +178,6 @@ begin
         signo_operacion(ex2,ex2_decimal);
         WriteLn('Ex2_decimal: ', ex2_decimal );
         Writeln('____________________');
-
     end;
     resultado:=dato;
 end;
@@ -208,50 +207,55 @@ begin
     Delete(binario,1,grande);
 end;
 //___________________________________________________________________
+procedure Caracteristicas_Binario();
 var
+    binario:cadena11;
+    resultado:Integer;
+begin
+    binario:='';
+    resultado:=0;   
+    writeln('Ingrese un numero Binario: ');
+    ReadLn(Binario);
+    Binario_A_Decimal(Binario,resultado);
+    WriteLn('Decimal: ', resultado);
+    WriteLn('Bits: ',Length(Binario));
+end;
+//___________________________________________________________________
+procedure Caracteristicas_Decimal();
+var
+    decimal:integer;
     Binario:cadena11;
     resultado:integer;
-    Elegir:Integer;
-    decimal:integer;
 begin
     decimal:=0;
-    Elegir:=0;
-    resultado:=0;
     Binario:='';
+    resultado:=0;  
+    writeln('Ingrese un numero Decimal: ');
+    ReadLn(decimal);
+    Decimal_Binario(decimal,Binario);
+    WriteLn('El binario es: ', Binario);
+    Binario_A_Decimal(Binario,resultado);
+    WriteLn('Bits: ',Length(Binario));
+end;
+//___________________________________________________________________
+var
+    Elegir:Integer;
+begin
+    Elegir:=0;
     clrscr;
     WriteLn('________________________________________');
-    while (Binario <> 'F') or (decimal = 9)  do
+    while (Elegir <> 3)   do
     begin
-        Binario:='';
-        decimal:=0;
-        resultado:=0;
         writeln('Elija una opcion: ');
         WriteLn('1) Caracteristicas de un Binario.');
         WriteLn('2) Caracteristicas de un Decimal.');
+        WriteLn('3) Terminar.');
+        Write('Opcion:');
         ReadLn(Elegir);
-
         case Elegir of
-            1: 
-            begin
-                WriteLn('Termina escribiendo "F"');    
-                writeln('Ingrese un numero Binario: ');
-                ReadLn(Binario);
-                Binario_A_Decimal(Binario,resultado);
-                WriteLn('Decimal: ', resultado);
-                WriteLn('Bits: ',Length(Binario));
-            end;
-            2:
-            begin
-                WriteLn('Termina escribiendo "F"');    
-                writeln('Ingrese un numero Decimal: ');
-                ReadLn(decimal);
-                Decimal_Binario(decimal,Binario);
-                WriteLn('El binario es: ', Binario);
-                Binario_A_Decimal(Binario,resultado);
-                WriteLn('Bits: ',Length(Binario));
-            end;
+            1: Caracteristicas_Binario();   
+            2: Caracteristicas_Decimal();
         end;
-        
         WriteLn('________________________________________');
     end;
 end.
