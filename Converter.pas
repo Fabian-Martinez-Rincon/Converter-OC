@@ -100,6 +100,21 @@ begin
     end;
 end;
 //___________________________________________________________________
+procedure RangosBss(bits:integer);
+var
+    Operacion:integer;
+    dos:integer;
+    valor:integer;
+begin
+    dos:=2;
+    valor:=Trunc(exp(dos * ln ( bits )));
+    WriteLn('Minimo Numero Negativo: No existe');
+    WriteLn('Maximo Numero Negativo: No existe');
+    WriteLn('Minimo Numero Positivo: 0');
+    WriteLn('Maximo Numero Positivo: ',valor-1);  
+    WriteLn('Rango: 0..',valor-1);
+end;
+//___________________________________________________________________
 procedure Binario_A_Decimal(Binario:cadena11; var resultado:Integer);
 var
     dato,i:integer;
@@ -140,6 +155,7 @@ begin
         Writeln('____________________');
         WriteLn('Bss: ', Binario );
         WriteLn('Bss_decimal: ', dato );
+        RangosBss(Length(Binario));
         Writeln('____________________');
         WriteLn('Ca1: ', Binario );
         WriteLn('Ca1_decimal: ', dato );
@@ -206,95 +222,7 @@ begin
     end;
     Delete(binario,1,grande);
 end;
-//___________________________________________________________________
-procedure RangosBss();
-var
-    bits:integer;
-begin
-    bits:=2;
-    case bits of
-        2:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-        3:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-        4:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-        5:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-        6:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-        7:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-        8:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-        9:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-        10:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-        11:
-        begin
-            WriteLn('Minimo Numero Negativo: No existe');
-            WriteLn('Maximo Numero Negativo: No existe');
-            WriteLn('Minimo Numero Positivo: 0');
-            WriteLn('Maximo Numero Positivo: 3');  
-            WriteLn('Rango: 0..3');
-        end;
-    end;
-end;
+
 //___________________________________________________________________
 procedure Caracteristicas_Binario();
 var

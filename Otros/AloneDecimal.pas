@@ -1,5 +1,5 @@
 program Conversor;
-type
+{type
     cadena11 = string[11];
 const
     valores : array[0..11] of integer = (2048,1024,512,256,128,64,32,16,8,4,2,1);
@@ -29,19 +29,25 @@ begin
     end;
     relleno:=grande;
     WriteLn('Relleno: ',relleno);
-end;
+end;}
 //_________________________________________
 var
-    decimal:integer;
+    {decimal:integer;
     binario:cadena11;
-    relleno:integer;
+    relleno:integer;}
+    x,y:integer;
+    valor2:integer;
 begin
-    binario:='';
+    x:=5;
+    y:=2;
+    valor2:=Trunc(exp(x * ln ( y )));
+    WriteLn('Hola mundo: ',valor2 );
+    {binario:='';
     WriteLn('Ingrese un numero decimal: ');
     ReadLn(decimal);
     Decimal_Binario(decimal,binario,relleno);
     WriteLn('Binario: ', binario);
     Delete(binario,1,relleno);
-    WriteLn('Binario: ', binario);
+    WriteLn('Binario: ', binario);}
 
 end.
