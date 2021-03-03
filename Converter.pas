@@ -335,10 +335,12 @@ begin
         WriteLn('3) Terminar.');
         Write('Opcion:');
         ReadLn(Elegir);
+        clrscr;
         case Elegir of
             1: Caracteristicas_Binario();   
             2: Caracteristicas_Decimal();
         end;
         WriteLn('________________________________________________________________________________________________________________________________________');
     end;
+    clrscr;
 end.
