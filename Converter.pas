@@ -152,11 +152,11 @@ begin
     dos:=2;
     bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
     valor:=Trunc(exp(dos * ln ( bits )));
-    WriteLn('Minimo Numero Negativo: -1');
-    WriteLn('Maximo Numero Negativo: -',valor);
-    WriteLn('Minimo Numero Positivo: 0');
-    WriteLn('Maximo Numero Positivo: ',valor-1);  
-    WriteLn('Rango: -',valor-1,'..',valor-1);
+    Write('Minimo Numero Negativo: -1   |');
+    Write('Maximo Numero Negativo: -',valor,'   |');
+    Write('Minimo Numero Positivo:  0   |');
+    Write('Maximo Numero Positivo:  ',valor-1,'   |');  
+    WriteLn('Rango: -',valor,'..',valor-1,'|');
 end;
 //___________________________________________________________________
 procedure RangosEx2(bits:integer);
@@ -167,11 +167,11 @@ begin
     dos:=2;
     bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
     valor:=Trunc(exp(dos * ln ( bits )));
-    WriteLn('Minimo Numero Negativo: -1   |');
-    WriteLn('Maximo Numero Negativo: -',valor,'   |');
-    WriteLn('Minimo Numero Positivo:  0   |');
-    WriteLn('Maximo Numero Positivo:  ',valor-1,'   |');  
-    WriteLn('Rango: -',valor-1,'..',valor-1);
+    Write('Minimo Numero Negativo: -1   |');
+    Write('Maximo Numero Negativo: -',valor,'   |');
+    Write('Minimo Numero Positivo:  0   |');
+    Write('Maximo Numero Positivo:  ',valor-1,'   |');  
+    WriteLn('Rango: -',valor,'..',valor-1);
 end;
 //___________________________________________________________________
 procedure Binario_A_Decimal(Binario:cadena11; var resultado:Integer);
@@ -249,6 +249,7 @@ begin
         WriteLn('Ca2: ', ca2 );
         signo_operacion(ca2,ca2_decimal);
         WriteLn('Ca2_decimal: -', ca2_decimal );
+        RangosCa2(Length(Binario));
         //RangosCa2(Length(Binario));
         WriteLn('________________________________________________________________________________________________________________________________________');
         Exceso(Binario,ex2);
