@@ -4,11 +4,11 @@ uses
 type
     cadena11 = string[11];
 const
-    valores : array[0..11] of integer = (1,2,4,8,16,32,64,128,256,512,1024,2048);
-    valores2 : array[0..11] of integer = (2048,1024,512,256,128,64,32,16,8,4,2,1);
+    valores : array[0..11] of integer = (1,2,4,8,16,32,64,128,256,512,1024,2048);//Con una ecuacion se puede hacer mas facil
+    valores2 : array[0..11] of integer = (2048,1024,512,256,128,64,32,16,8,4,2,1);//Despues lo tengo que cambiar
 
 //___________________________________________________________________
-procedure ComplementoA1(Binario:cadena11;var ca1:cadena11);
+procedure ComplementoA1(Binario:cadena11;var ca1:cadena11);//Cuando me sale un 1, cargo un 0
 var
     i:integer;
 begin
