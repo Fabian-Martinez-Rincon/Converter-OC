@@ -102,7 +102,6 @@ end;
 //___________________________________________________________________
 procedure RangosBss(bits:integer);
 var
-    Operacion:integer;
     dos:integer;
     valor:integer;
 begin
@@ -115,19 +114,63 @@ begin
     WriteLn('Rango: 0..',valor-1);
 end;
 //___________________________________________________________________
-procedure RangosBcs(bits:integer);
+procedure RangosCa1(bits:integer);
 var
-    Operacion:integer;
     dos:integer;
     valor:integer;
 begin
     dos:=2;
     bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
     valor:=Trunc(exp(dos * ln ( bits )));
-    WriteLn('Minimo Numero Negativo: -0');
-    WriteLn('Maximo Numero Negativo: -',valor-1);
+    Write('Minimo Numero Negativo: -0   |');
+    Write('Maximo Numero Negativo: -',valor-1,'   |');
+    Write('Minimo Numero Positivo:  0   |');
+    Write('Maximo Numero Positivo:  ',valor-1,'   |');  
+    WriteLn('Rango: -',valor-1,'..',valor-1,'|');
+end;
+//___________________________________________________________________
+procedure RangosBcs(bits:integer);
+var
+    dos:integer;
+    valor:integer;
+begin
+    dos:=2;
+    bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
+    valor:=Trunc(exp(dos * ln ( bits )));
+    Write('Minimo Numero Negativo: -0   |');
+    Write('Maximo Numero Negativo: -',valor-1,'   |');
+    Write('Minimo Numero Positivo:  0   |');
+    Write('Maximo Numero Positivo:  ',valor-1,'   |');  
+    WriteLn('Rango: -',valor-1,'..',valor-1,'|');
+end;
+//___________________________________________________________________
+procedure RangosCa2(bits:integer);
+var
+    dos:integer;
+    valor:integer;
+begin
+    dos:=2;
+    bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
+    valor:=Trunc(exp(dos * ln ( bits )));
+    WriteLn('Minimo Numero Negativo: -1');
+    WriteLn('Maximo Numero Negativo: -',valor);
     WriteLn('Minimo Numero Positivo: 0');
     WriteLn('Maximo Numero Positivo: ',valor-1);  
+    WriteLn('Rango: -',valor-1,'..',valor-1);
+end;
+//___________________________________________________________________
+procedure RangosEx2(bits:integer);
+var
+    dos:integer;
+    valor:integer;
+begin
+    dos:=2;
+    bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
+    valor:=Trunc(exp(dos * ln ( bits )));
+    WriteLn('Minimo Numero Negativo: -1   |');
+    WriteLn('Maximo Numero Negativo: -',valor,'   |');
+    WriteLn('Minimo Numero Positivo:  0   |');
+    WriteLn('Maximo Numero Positivo:  ',valor-1,'   |');  
     WriteLn('Rango: -',valor-1,'..',valor-1);
 end;
 //___________________________________________________________________
@@ -168,49 +211,52 @@ begin
 
     if ( Binario[Length(Binario)-probando] = '0')  then
     begin
-        Writeln('____________________');
+        WriteLn('________________________________________________________________________________________________________________________________________');
         WriteLn('Bss: ', Binario );
         WriteLn('Bss_decimal: ', dato );
         RangosBss(Length(Binario));
-        Writeln('____________________');
+        WriteLn('________________________________________________________________________________________________________________________________________');
         WriteLn('Ca1: ', Binario );
         WriteLn('Ca1_decimal: ', dato );
-        Writeln('____________________');
+        WriteLn('________________________________________________________________________________________________________________________________________');
         WriteLn('Ca2: ', Binario );
         WriteLn('Ca2_decimal: ', dato );
-        Writeln('____________________');
+        WriteLn('________________________________________________________________________________________________________________________________________');
         ComplementoA1(Binario,segundon);
         ComplementoA2(segundon,segundon2);
         Exceso(segundon2,ex2);
         WriteLn('Ex2: ',ex2);
         signo_operacion(ex2,ex2_decimal);
         WriteLn('Ex2_decimal: -', ex2_decimal );
-        Writeln('____________________');
+        WriteLn('________________________________________________________________________________________________________________________________________');
     end;
 
     if ( Binario[Length(Binario)-probando] = '1')  then
     begin
-        Writeln('____________________');
+        WriteLn('________________________________________________________________________________________________________________________________________');
         WriteLn('Bcs: ', Binario ); //Lo dejo igual ya que no cambia nada el binario original del Bcs
         signo_operacion(Binario,bcs);
         WriteLn('Bcs_decimal: -',bcs);
         RangosBcs(Length(Binario));
-        Writeln('____________________');
+        WriteLn('________________________________________________________________________________________________________________________________________');
         ComplementoA1(Binario,ca1);
         WriteLn('Ca1: ', ca1 );
         signo_operacion(ca1,ca1_decimal);
         WriteLn('Ca1_decimal: -', ca1_decimal );
-        Writeln('____________________');
+        RangosCa1(Length(Binario));
+        WriteLn('________________________________________________________________________________________________________________________________________');
         ComplementoA2(ca1,ca2);
         WriteLn('Ca2: ', ca2 );
         signo_operacion(ca2,ca2_decimal);
         WriteLn('Ca2_decimal: -', ca2_decimal );
-        Writeln('____________________');
+        //RangosCa2(Length(Binario));
+        WriteLn('________________________________________________________________________________________________________________________________________');
         Exceso(Binario,ex2);
         WriteLn('Ex2: ',ex2);
         signo_operacion(ex2,ex2_decimal);
         WriteLn('Ex2_decimal: ', ex2_decimal );
-        Writeln('____________________');
+        RangosEx2(Length(Binario));
+        WriteLn('________________________________________________________________________________________________________________________________________');
     end;
     resultado:=dato;
 end;
@@ -278,10 +324,9 @@ var
     Elegir:Integer;
 begin
     Elegir:=0;
-    clrscr;
-    WriteLn('________________________________________');
-    while (Elegir <> 3)   do
-    begin
+    WriteLn('________________________________________________________________________________________________________________________________________');
+    //while (Elegir <> 3)   do
+    //begin
         writeln('Elija una opcion: ');
         WriteLn('1) Caracteristicas de un Binario.');
         WriteLn('2) Caracteristicas de un Decimal.');
@@ -292,6 +337,6 @@ begin
             1: Caracteristicas_Binario();   
             2: Caracteristicas_Decimal();
         end;
-        WriteLn('________________________________________');
-    end;
+        WriteLn('________________________________________________________________________________________________________________________________________');
+    //end;
 end.
