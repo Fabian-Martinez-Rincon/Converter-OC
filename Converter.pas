@@ -324,10 +324,11 @@ end;
 var
     Elegir:Integer;
 begin
+    clrscr;
     Elegir:=0;
     WriteLn('________________________________________________________________________________________________________________________________________');
-    //while (Elegir <> 3)   do
-    //begin
+    while (Elegir <> 3)   do
+    begin
         writeln('Elija una opcion: ');
         WriteLn('1) Caracteristicas de un Binario.');
         WriteLn('2) Caracteristicas de un Decimal.');
@@ -339,5 +340,5 @@ begin
             2: Caracteristicas_Decimal();
         end;
         WriteLn('________________________________________________________________________________________________________________________________________');
-    //end;
+    end;
 end.
