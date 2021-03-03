@@ -166,12 +166,12 @@ var
 begin
     dos:=2;
     bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
-    valor:=Trunc(exp(dos * ln ( bits )));
+    valor:=Trunc(exp(dos * ln ( bits )));//2^(bits-1)
     Write('Minimo Numero Negativo: -1   |');
     Write('Maximo Numero Negativo: -',valor,'   |');
     Write('Minimo Numero Positivo:  0   |');
     Write('Maximo Numero Positivo:  ',valor-1,'   |');  
-    WriteLn('Rango: -',valor,'..',valor-1);
+    WriteLn('Rango: -',valor,'..',valor-1);//(2^(bits-1))-1
 end;
 //___________________________________________________________________
 procedure Binario_A_Decimal(Binario:cadena11; var resultado:Integer);
