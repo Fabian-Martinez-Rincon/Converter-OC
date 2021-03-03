@@ -106,13 +106,29 @@ var
     dos:integer;
     valor:integer;
 begin
-    dos:=2;
-    valor:=Trunc(exp(dos * ln ( bits )));
+    dos:=2;//2^bits
+    valor:=Trunc(exp(dos * ln ( bits )));//Me quedo con el entero de la operacion
     WriteLn('Minimo Numero Negativo: No existe');
     WriteLn('Maximo Numero Negativo: No existe');
     WriteLn('Minimo Numero Positivo: 0');
     WriteLn('Maximo Numero Positivo: ',valor-1);  
     WriteLn('Rango: 0..',valor-1);
+end;
+//___________________________________________________________________
+procedure RangosBcs(bits:integer);
+var
+    Operacion:integer;
+    dos:integer;
+    valor:integer;
+begin
+    dos:=2;
+    bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
+    valor:=Trunc(exp(dos * ln ( bits )));
+    WriteLn('Minimo Numero Negativo: -0');
+    WriteLn('Maximo Numero Negativo: -',valor-1);
+    WriteLn('Minimo Numero Positivo: 0');
+    WriteLn('Maximo Numero Positivo: ',valor-1);  
+    WriteLn('Rango: -',valor-1,'..',valor-1);
 end;
 //___________________________________________________________________
 procedure Binario_A_Decimal(Binario:cadena11; var resultado:Integer);
@@ -178,6 +194,7 @@ begin
         WriteLn('Bcs: ', Binario ); //Lo dejo igual ya que no cambia nada el binario original del Bcs
         signo_operacion(Binario,bcs);
         WriteLn('Bcs_decimal: -',bcs);
+        RangosBcs(Length(Binario));
         Writeln('____________________');
         ComplementoA1(Binario,ca1);
         WriteLn('Ca1: ', ca1 );
