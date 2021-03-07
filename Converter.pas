@@ -218,9 +218,11 @@ begin
         WriteLn('________________________________________________________________________________________________________________________________________');
         WriteLn('Ca1: ', Binario );
         WriteLn('Ca1_decimal: ', dato );
+        WriteLn('Al empezar con 0, tiene los mismos valores que el BSS');
         WriteLn('________________________________________________________________________________________________________________________________________');
         WriteLn('Ca2: ', Binario );
         WriteLn('Ca2_decimal: ', dato );
+        WriteLn('Al empezar con 0, tiene los mismos valores que el BSS');
         WriteLn('________________________________________________________________________________________________________________________________________');
         ComplementoA1(Binario,segundon);
         ComplementoA2(segundon,segundon2);
@@ -228,6 +230,7 @@ begin
         WriteLn('Ex2: ',ex2);
         signo_operacion(ex2,ex2_decimal);
         WriteLn('Ex2_decimal: -', ex2_decimal );
+        RangosEx2(Length(Binario));
         WriteLn('________________________________________________________________________________________________________________________________________');
     end;
 
