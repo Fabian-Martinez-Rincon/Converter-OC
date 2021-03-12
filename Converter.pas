@@ -237,7 +237,10 @@ begin
     if ( Binario[Length(Binario)-probando] = '1')  then
     begin
         WriteLn('________________________________________________________________________________________________________________________________________');
-        WriteLn('Bcs: ', Binario ); //Lo dejo igual ya que no cambia nada el binario original del Bcs
+        WriteLn('Bss: ', Binario);
+        WriteLn('Bss_decimal: ', dato);
+        WriteLn('________________________________________________________________________________________________________________________________________');
+        WriteLn('Bcs: ', Binario ); 
         signo_operacion(Binario,bcs);
         WriteLn('Bcs_decimal: -',bcs);
         RangosBcs(Length(Binario));
