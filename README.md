@@ -3,11 +3,14 @@
 <p align="center">
   <img src="Portada/converter-oc.png">
 </p>
+
+## Diagrama.
+ 
 <p align="center">
   <img src="Portada/oc1.png">
 </p>
 
-## FUNCIONAMIENT0
+## Funcionamiento
 ![](Portada/menu1.PNG)
 
 ![](Portada/menu2.PNG)
