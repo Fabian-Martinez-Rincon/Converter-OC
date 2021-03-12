@@ -7,10 +7,14 @@
 ## Diagrama.
 ![](Portada/oc1.png)
 
-## Funcionamiento
+## Menu
 ![](Portada/menu1.PNG)
 
+## Ejemplo con un binario
+
 ![](Portada/menu2.PNG)
+
+## Ejemplo con un decimal
 
 ![](Portada/menu3.PNG)
 
