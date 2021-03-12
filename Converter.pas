@@ -107,11 +107,11 @@ var
 begin
     dos:=2;//2^bits
     valor:=Trunc(exp(dos * ln ( bits )));//Me quedo con el entero de la operacion
-    WriteLn('Minimo Numero Negativo: No existe');
-    WriteLn('Maximo Numero Negativo: No existe');
-    WriteLn('Minimo Numero Positivo: 0');
-    WriteLn('Maximo Numero Positivo: ',valor-1);  
-    WriteLn('Rango: 0..',valor-1);
+    Write('Minimo Numero Negativo: No existe    ');
+    Write('Maximo Numero Negativo: No existe    ');
+    Write('Minimo Numero Positivo: 0    ');
+    Write('Maximo Numero Positivo:',valor-1);  
+    WriteLn('    Rango: 0..',valor-1);
 end;
 //___________________________________________________________________
 procedure RangosCa1(bits:integer);
@@ -239,6 +239,7 @@ begin
         WriteLn('________________________________________________________________________________________________________________________________________');
         WriteLn('Bss: ', Binario);
         WriteLn('Bss_decimal: ', dato);
+        RangosBss(Length(Binario));
         WriteLn('________________________________________________________________________________________________________________________________________');
         WriteLn('Bcs: ', Binario ); 
         signo_operacion(Binario,bcs);
