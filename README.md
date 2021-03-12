@@ -5,10 +5,7 @@
 </p>
 
 ## Diagrama.
- 
-<p align="center">
-  <img src="Portada/oc1.png">
-</p>
+![](Portada/oc1.png)
 
 ## Funcionamiento
 ![](Portada/menu1.PNG)
