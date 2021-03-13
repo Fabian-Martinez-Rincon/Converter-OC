@@ -5,7 +5,7 @@
 </p>
 
 ## Diagrama.
-![](Portada/oc1.png)
+![](Portada/oc.png)
 
 ## Menu
 ![](Portada/menu1.PNG)
