@@ -136,7 +136,7 @@ var
 begin
     dos:=2;
     bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
-    valor:=Trunc(exp(dos * ln ( bits )));
+    valor:=Trunc(exp(bits * ln ( dos )));
     Write('Minimo Numero Negativo: -0   |');
     Write('Maximo Numero Negativo: -',valor-1,'   |');
     Write('Minimo Numero Positivo:  0   |');
@@ -151,7 +151,7 @@ var
 begin
     dos:=2;
     bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
-    valor:=Trunc(exp(dos * ln ( bits )));
+    valor:=Trunc(exp(bits * ln ( dos )));
     Write('Minimo Numero Negativo: -1   |');
     Write('Maximo Numero Negativo: -',valor,'   |');
     Write('Minimo Numero Positivo:  0   |');
@@ -166,7 +166,7 @@ var
 begin
     dos:=2;
     bits:=bits-1;//Resto uno porque es bcs entonces no uso el ultimo bit
-    valor:=Trunc(exp(dos * ln ( bits )));//2^(bits-1)
+    valor:=Trunc(exp(bits * ln ( dos )));//2^(bits-1)
     Write('Minimo Numero Negativo: -1   |');
     Write('Maximo Numero Negativo: -',valor,'   |');
     Write('Minimo Numero Positivo:  0   |');
