@@ -6,7 +6,7 @@ type
 const
     valores : array[0..11] of integer = (1,2,4,8,16,32,64,128,256,512,1024,2048);//Con una ecuacion se puede hacer mas facil
     valores2 : array[0..11] of integer = (2048,1024,512,256,128,64,32,16,8,4,2,1);//Despues lo tengo que cambiar
-
+    decimales : array[0..11] of Real = (0.5,0.25,0.125,0.0625,0.03125,0.015625,0.0078125,0.00390625,0.001953125,0.0009765625,0.00048828125,0.000244140625);
 //___________________________________________________________________
 procedure ComplementoA1(Binario:cadena11;var ca1:cadena11);//Cuando me sale un 1, cargo un 0
 var
