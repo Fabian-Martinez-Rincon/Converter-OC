@@ -101,16 +101,16 @@ begin
 end;
 //___________________________________________________________________
 procedure RangosBss(bits:integer);
-var
+var//5
     dos:integer;
     valor:integer;
 begin
     dos:=2;//2^bits
-    valor:=Trunc(exp(dos * ln ( bits )));//Me quedo con el entero de la operacion
+    valor:=Trunc(exp(bits * ln ( dos )));//Me quedo con el entero de la operacion
     Write('Minimo Numero Negativo: No existe    ');
     Write('Maximo Numero Negativo: No existe    ');
     Write('Minimo Numero Positivo: 0    ');
-    Write('Maximo Numero Positivo:',valor-1);  
+    Write('Maximo Numero Positivo:',valor-1);//25 wtf  
     WriteLn('    Rango: 0..',valor-1);
 end;
 //___________________________________________________________________
@@ -215,6 +215,10 @@ begin
         WriteLn('Bss: ', Binario );
         WriteLn('Bss_decimal: ', dato );
         RangosBss(Length(Binario));
+        WriteLn('________________________________________________________________________________________________________________________________________');
+        WriteLn('Bcs: ', Binario );
+        WriteLn('Bcs_decimal: ', dato );
+        WriteLn('Al empezar con 0, tiene los mismos valores que el BSS');
         WriteLn('________________________________________________________________________________________________________________________________________');
         WriteLn('Ca1: ', Binario );
         WriteLn('Ca1_decimal: ', dato );
