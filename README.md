@@ -12,7 +12,7 @@
 
 ## Ejemplo con un binario
 
-![](Portada/Ejemplo.PNG)
+![](Portada/Ejemplo1.PNG)
 
 ## Ejemplo con un binario 2
 
