@@ -12,9 +12,13 @@
 
 ## Ejemplo con un binario
 
-![](Portada/menu2.PNG)
+![](Portada/Ejemplo.PNG)
+
+## Ejemplo con un binario 2
+
+![](Portada/Ejemplo2.PNG)
 
 ## Ejemplo con un decimal
 
-![](Portada/menu3.PNG)
+![](Portada/Ejemplo3.PNG)
 
