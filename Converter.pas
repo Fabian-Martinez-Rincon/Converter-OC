@@ -13,6 +13,7 @@ var
     i:integer;
     primero:Boolean;
 begin
+    //Invierto todos los numeros menos el primero digito que lo mantengo igual
     primero:=True;
     for i:=0 to Length(Binario)-2 do //El menos 1 esta, porque se ejecuta una de mas owo
     begin 
@@ -32,6 +33,7 @@ procedure ComplementoA1(Binario:cadena11;var ca1:cadena11);//Cuando me sale un 1
 var
     i:integer;
 begin
+    //El complemento A1 lo que hace es invertir todos los digitos
     for i:=0 to Length(Binario)-1 do //El menos 1 esta, porque se ejecuta una de mas owo
     begin
         if (Binario[Length(Binario)-i] = '1') then
@@ -49,6 +51,7 @@ procedure signo_operacion(Binario:cadena11;var numero:integer);
 var
     i:integer;
 begin
+    //Paso el numero a decimal, usando el primero dijito como signo
     for i:=0 to (Length(Binario)-2) do //Me quedo con los primeros digitos y dejando el ultimo porque se usa para el signo
     begin
         if (Binario[Length(Binario)-i] = '1') then
@@ -107,6 +110,7 @@ procedure exceso(binario:cadena11;var ex2:cadena11); // Recorro el binario hasta
 var
     i:integer;
 begin
+    //Dejo todos los numeros iguales, menos el ultimo que lo cambio por un cero
     for i:=0 to Length(binario)-1 do
     begin
         if (Length(binario)-1 = (i)) then
@@ -236,7 +240,7 @@ begin
     ca2_decimal:=0;
     ex2:='';
     ex2_decimal:=0;
-
+    //Paso el binario normal a decimal
     for i:=0 to Length(Binario)-1 do //El menos 1 esta, porque se ejecuta una de mas owo
     begin
         if (Binario[Length(Binario)-i] = '1') then
