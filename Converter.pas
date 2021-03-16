@@ -337,10 +337,11 @@ begin
         Negativo:=True;
         WriteLn('Como es negativo tomaremos 8 o 16 bits para representarlo');
     end;
-    for i:=1 to 11 do
-    begin
-        if (valores2[i]<=decimal) then
-        begin
+    //___________________________________
+    for i:=1 to 11 do 
+    begin//Buscamos en el arreglo, cual es el numero mas grande, sin pasarse del numero ingresado
+        if (valores2[i]<=decimal) then //Al ser un arreglo inverso, siempre vamos a tener numeros mas altos
+        begin //Una vez que el numero es mas chico, lo restamos al numero original, mientras sea mayor, agregamos ceros
             binario:=binario+'1';
             decimal:=decimal-valores2[i];
             if grande>=i then
@@ -353,14 +354,15 @@ begin
                     binario:=binario+'0';
                 end;
     end;
-    Delete(binario,1,grande);
-    if (Negativo) then
+    //___________________________________
+    Delete(binario,1,grande); //Elimino los ceros que sobran, para esto miramos cual fue el ultima uno y a partir de ese
+    if (Negativo) then //eliminamos
     begin
-        while  ((Length(binario)+1)<8) do
-        begin
+        while  ((Length(binario)+1)<8) do //Relleno los espacios vacios del ultimo 1 hasta llegar al ultimo bit
+        begin //Que en este caso trabajaremos con 8 bits
             binario:='0'+binario;
         end;
-        binario:='1'+binario;
+        binario:='1'+binario; //Cuando llega al ultimo, agregamos el 1 ya que nos indica que es un binario con signo
     end;
 end;
 
