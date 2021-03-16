@@ -100,6 +100,23 @@ begin
     end;
 end;
 //___________________________________________________________________
+{procedure NegativoBinario(binario:cadena11;var ex2:cadena11); // Recorro el binario hasta cambiar el ultimo digito por un 0
+var
+    i:integer;
+begin
+    for i:=0 to Length(binario)-1 do
+    begin
+        if (Length(binario)-1 = (i)) then
+        begin
+            ex2:='1' +ex2;
+        end
+        else
+            begin
+                ex2:=binario[Length(binario)-i] +ex2;      
+            end;
+    end;
+end;}
+//___________________________________________________________________
 procedure RangosBss(bits:integer);
 var//5
     dos:integer;
@@ -277,8 +294,16 @@ procedure Decimal_Binario(decimal:Integer;var binario:cadena11);
 var
     i:Integer;
     grande:integer;
+    Negativo:Boolean;
 begin
+    Negativo:=False;
     grande:=999;
+    if (decimal < 0) then
+    begin
+        decimal:=decimal*-1;//-32
+        Negativo:=True;
+        WriteLn('Como es negativo tomaremos 8 o 16 bits para representarlo');
+    end;
     for i:=1 to 11 do
     begin
         if (valores2[i]<=decimal) then
@@ -296,6 +321,10 @@ begin
                 end;
     end;
     Delete(binario,1,grande);
+    if (Negativo) then
+    begin
+        binario:='1'+binario;
+    end;
 end;
 
 //___________________________________________________________________
