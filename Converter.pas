@@ -287,7 +287,7 @@ begin
         WriteLn('Bcs_decimal: -',bcs);
         RangosBcs(Length(Binario));
         WriteLn('________________________________________________________________________________________________________________________________________');
-        if negativo then
+        if negativo then //Como el decimal es negativo, siempre me quedo con el ultimo numero
         begin
             ComplementoA12(Binario,ca1);
             WriteLn('Ca1: ', ca1 );  
@@ -309,7 +309,7 @@ begin
         RangosCa2(Length(Binario));
         //RangosCa2(Length(Binario));
         WriteLn('________________________________________________________________________________________________________________________________________');
-        if negativo then
+        if negativo then//Cuando el numero decimal es negativo, tenemos que usar el ca2 para pasarlo a ex2
         begin
             Exceso(ca2,ex2);
         end
