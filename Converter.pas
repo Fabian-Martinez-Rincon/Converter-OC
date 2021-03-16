@@ -8,6 +8,26 @@ const
     valores2 : array[0..11] of integer = (2048,1024,512,256,128,64,32,16,8,4,2,1);//Despues lo tengo que cambiar
     decimales : array[0..11] of Real = (0.5,0.25,0.125,0.0625,0.03125,0.015625,0.0078125,0.00390625,0.001953125,0.0009765625,0.00048828125,0.000244140625);
 //___________________________________________________________________
+procedure ComplementoA12(Binario:cadena11;var ca1:cadena11);//Cuando me sale un 1, cargo un 0
+var
+    i:integer;
+    primero:Boolean;
+begin
+    primero:=True;
+    for i:=0 to Length(Binario)-2 do //El menos 1 esta, porque se ejecuta una de mas owo
+    begin 
+        if (Binario[Length(Binario)-i] = '1') then
+            begin
+                ca1:='0'+ca1;
+            end
+        else 
+            begin
+                ca1:='1'+ca1;
+            end;
+    end;
+    ca1:='1'+ca1;
+end;
+//___________________________________________________________________
 procedure ComplementoA1(Binario:cadena11;var ca1:cadena11);//Cuando me sale un 1, cargo un 0
 var
     i:integer;
@@ -191,7 +211,7 @@ begin
     WriteLn('Rango: -',valor,'..',valor-1);//(2^(bits-1))-1
 end;
 //___________________________________________________________________
-procedure Binario_A_Decimal(Binario:cadena11; var resultado:Integer);
+procedure Binario_A_Decimal(Binario:cadena11; var resultado:Integer;negativo:Boolean);
 var
     dato,i:integer;
     probando:Integer;
@@ -267,8 +287,17 @@ begin
         WriteLn('Bcs_decimal: -',bcs);
         RangosBcs(Length(Binario));
         WriteLn('________________________________________________________________________________________________________________________________________');
-        ComplementoA1(Binario,ca1);
-        WriteLn('Ca1: ', ca1 );
+        if negativo then
+        begin
+            ComplementoA12(Binario,ca1);
+            WriteLn('Ca1: ', ca1 );  
+        end
+        else
+            begin
+                ComplementoA1(Binario,ca1);
+                WriteLn('Ca1: ', ca1 );  
+            end;
+        
         signo_operacion(ca1,ca1_decimal);
         WriteLn('Ca1_decimal: -', ca1_decimal );
         RangosCa1(Length(Binario));
@@ -280,7 +309,12 @@ begin
         RangosCa2(Length(Binario));
         //RangosCa2(Length(Binario));
         WriteLn('________________________________________________________________________________________________________________________________________');
-        Exceso(Binario,ex2);
+        if negativo then
+        begin
+            Exceso(ca2,ex2);
+        end
+            else
+                Exceso(Binario,ex2);
         WriteLn('Ex2: ',ex2);
         signo_operacion(ex2,ex2_decimal);
         WriteLn('Ex2_decimal: ', ex2_decimal );
@@ -290,11 +324,10 @@ begin
     resultado:=dato;
 end;
 //___________________________________________________________________
-procedure Decimal_Binario(decimal:Integer;var binario:cadena11);
+procedure Decimal_Binario(decimal:Integer;var binario:cadena11;var Negativo:Boolean);
 var
     i:Integer;
     grande:integer;
-    Negativo:Boolean;
 begin
     Negativo:=False;
     grande:=999;
@@ -323,6 +356,10 @@ begin
     Delete(binario,1,grande);
     if (Negativo) then
     begin
+        while  ((Length(binario)+1)<8) do
+        begin
+            binario:='0'+binario;
+        end;
         binario:='1'+binario;
     end;
 end;
@@ -332,12 +369,14 @@ procedure Caracteristicas_Binario();
 var
     binario:cadena11;
     resultado:Integer;
+    negativo:Boolean;
 begin
+    negativo:=False;
     binario:='';
     resultado:=0;   
     writeln('Ingrese un numero Binario: ');
     ReadLn(Binario);
-    Binario_A_Decimal(Binario,resultado);
+    Binario_A_Decimal(Binario,resultado,negativo);
     WriteLn('Decimal: ', resultado);
     WriteLn('Bits: ',Length(Binario));
 end;
@@ -348,15 +387,16 @@ var
     decimal:integer;
     Binario:cadena11;
     resultado:integer;
+    Negativo:Boolean;
 begin
     decimal:=0;
     Binario:='';
     resultado:=0;  
     writeln('Ingrese un numero Decimal: ');
     ReadLn(decimal);
-    Decimal_Binario(decimal,Binario);
+    Decimal_Binario(decimal,Binario,Negativo);
     WriteLn('El binario es: ', Binario);
-    Binario_A_Decimal(Binario,resultado);
+    Binario_A_Decimal(Binario,resultado,Negativo);
     WriteLn('Bits: ',Length(Binario));
 
 end;
