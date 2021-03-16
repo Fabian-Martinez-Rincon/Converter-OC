@@ -331,8 +331,8 @@ var
 begin
     Negativo:=False;
     grande:=999;
-    if (decimal < 0) then
-    begin
+    if (decimal < 0) then//Lo que hago es mirar si el numero es negativo, lo multiplico por -1 para poder 
+    begin //Trabajar sobre el mismo de manera mas comoda
         decimal:=decimal*-1;//-32
         Negativo:=True;
         WriteLn('Como es negativo tomaremos 8 o 16 bits para representarlo');
@@ -366,7 +366,7 @@ end;
 
 //___________________________________________________________________
 procedure Caracteristicas_Binario();
-var
+var//Leo un binario y paso tadas sus caracteristicas por pantalla
     binario:cadena11;
     resultado:Integer;
     negativo:Boolean;
@@ -382,7 +382,7 @@ begin
 end;
 
 //___________________________________________________________________
-procedure Caracteristicas_Decimal();
+procedure Caracteristicas_Decimal();//Leo el decimal y miro si en negativo o no
 var
     decimal:integer;
     Binario:cadena11;
@@ -397,14 +397,16 @@ begin
     Decimal_Binario(decimal,Binario,Negativo);
     WriteLn('El binario es: ', Binario);
     Binario_A_Decimal(Binario,resultado,Negativo);
-    WriteLn('Bits: ',Length(Binario));
+    WriteLn('Bits: ',Length(Binario));//El length lo que hace es darnos la longitud de cierto numero
+    //Que en este caso es un binario
 
 end;
 //___________________________________________________________________
 var
     Elegir:Integer;
 begin
-    clrscr;
+    //El tipico menu
+    clrscr;//Elimina lo escrito anteriormente en la consola
     Elegir:=0;
     WriteLn('________________________________________________________________________________________________________________________________________');
     while (Elegir <> 3)   do
