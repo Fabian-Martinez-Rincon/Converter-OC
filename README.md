@@ -10,17 +10,21 @@
 ## Menu
 ![](Portada/menu1.PNG)
 
-## Ejemplo con un binario
+## Ejemplo con un binario que empieza con 1
 
 ![](Portada/Ejemplo1.PNG)
 
-## Ejemplo con un binario 2
+## Ejemplo con un binario que empieza con 0
 
 ![](Portada/Ejemplo2.PNG)
 
-## Ejemplo con un decimal
+## Ejemplo con un decimal positivo
 
 ![](Portada/Ejemplo3.PNG)
+
+## Ejemplo de un decimal negativo
+
+![](Portada/Ejemplo4.PNG)
 
 ### Website
 
