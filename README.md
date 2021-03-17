@@ -1,3 +1,5 @@
+[![HitCount](http://hits.dwyl.com/Fabian-Martinez1/Converter-OC.svg)](http://hits.dwyl.com/Fabian-Martinez1/Converter-OC)
+
 # Calculator-for-OC.
 
 <p align="center">
